@@ -106,6 +106,16 @@ func (s *Server) SetUpRoutes() {
 		},
 		Route{
 			"POST",
+			"/v1/session/{sessionId}/keydown",
+			s.GetKeyDownButtonHandler(),
+		},
+		Route{
+			"POST",
+			"/v1/session/{sessionId}/keyup",
+			s.GetKeyUpButtonHandler(),
+		},
+		Route{
+			"POST",
 			"/v1/session/{sessionId}/launch",
 			s.GetLaunchHandler(),
 		},

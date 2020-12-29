@@ -16,10 +16,13 @@
 package main
 
 import (
-    httpServer "httpServer"
+	"flag"
+	httpServer "httpServer"
 )
 
 func main() {
-    server := httpServer.GetServerInstance()
-    server.Start()
+	port := flag.String("port", "9000", "Port number on which the Roku webdriver service would run")
+	flag.Parse()
+	server := httpServer.GetServerInstance()
+	server.Start(*port)
 }
